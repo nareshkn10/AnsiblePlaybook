@@ -1,0 +1,18 @@
+---
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: creating multple users
+      user: name='{{item}}' state=present
+      with_items: 
+            - Naresh
+            - Sai
+            - Suresh
+            - Hari
+            - Raj
+            - Gopal
+            - Navin
+

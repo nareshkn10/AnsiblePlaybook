@@ -1,0 +1,12 @@
+--- 
+- hosts: all
+  connection: ssh
+  user: ansible  
+
+
+  tasks:
+    - name: install a software
+      yum:
+        name: java
+        state: latest
+

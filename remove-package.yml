@@ -1,0 +1,13 @@
+--- #remove s/w
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+  name: my playbook 
+
+
+  tasks: 
+    - name: removing softwares
+      yum:
+        name: docker
+        state: absent  

@@ -1,0 +1,20 @@
+--- # conditonal 2-playbook
+- name: conditional playbook
+  hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: install httpd package
+      yum: 
+        name: httpd
+        state: installed
+      when: ansible_os_family == "Redhat"
+
+
+    - name: start httpd service
+      service: 
+        name: httpd
+        state: started
+      when: ansible_os_famly == "Redhat"    
